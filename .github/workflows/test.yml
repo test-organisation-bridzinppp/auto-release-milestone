@@ -18,5 +18,5 @@ jobs:
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
       - name: Print url of the release
-        if: steps.create-release-draft.outputs.release-url.outputs.release-url != ''
+        if: steps.create-release-draft.outputs.release-url != ''
         run: echo "The release URL is ${{ steps.create-release-draft.outputs.release-url }}"
