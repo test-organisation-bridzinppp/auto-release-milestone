@@ -1,0 +1,22 @@
+name: Test
+on: 
+  push:
+    branches:
+      - master
+  milestone:
+    types:
+      - closed  
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get the sources
+        uses: actions/checkout@v2
+      - name: Create a release drafted for a milestone
+        id: create-release-draft
+        uses: ./
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Print url of the release
+        if: steps.create-release-draft.outputs.release-url.outputs.release-url != ''
+        run: echo "The release URL is ${{ steps.create-release-draft.outputs.release-url }}"

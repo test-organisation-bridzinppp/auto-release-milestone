@@ -1,0 +1,9 @@
+name: 'Auto release Milestone'
+description: 'Drafts a GH release, baesd on the milestone'
+author: "Peter B."
+outputs:
+  release-url:
+    description: 'The URL of the drafted release'
+runs:
+  using: 'docker'      
+  image: 'Dockerfile' #or image path 
